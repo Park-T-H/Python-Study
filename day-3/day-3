@@ -1,0 +1,229 @@
+#----- if 문 -----
+print("Welcome to the rollercoaster!")
+height = int(input("What is your height in cm? "))
+
+if height >= 120:
+    print("You can ride the rollercoaster!")
+else:
+    print("Sorry, you have to grow taller before you can ride.")
+
+#----- 홀짝1 -----
+number = int(input())
+# 🚨 Don't change the code above 👆
+
+# Write your code below this line 👇
+remainder = number % 2
+if remainder != 0:
+  print("This is an odd number.")
+else:
+  print("This is an even number.")
+
+#----- 홀짝2 -----
+# Which number do you want to check?
+number = int(input())
+# 🚨 Don't change the code above 👆
+
+# Write your code below this line 👇
+if number % 2 == 0:
+  print("This is an even number.")
+else:
+  print("This is an odd number.")
+
+#----- 중첩 if 문 -----
+print("Welcome to the rollercoaster!")
+height = int(input("What is your height in cm? "))
+
+if height >= 120:
+    print("You can ride the rollercoaster!")
+    age = int(input("How old are you?"))
+    if age <= 18:
+       print("Please pay $7.")
+    else:
+       print("Please pay $12.")
+else:
+    print("Sorry, you have to grow taller before you can ride.")
+
+#----- elif 문 -----
+print("Welcome to the rollercoaster!")
+height = int(input("What is your height in cm? "))
+
+if height >= 120:
+    print("You can ride the rollercoaster!")
+    age = int(input("How old are you? "))
+    if age < 12:
+       print("Please pay $5.")
+    elif age <= 18:
+        print("Please pay $7.")
+    else:
+       print("Please pay $12.")
+else:
+    print("Sorry, you have to grow taller before you can ride.")
+
+#----- BMI 계산기 2.0 -----
+height = float(input("Enter your height in meters : "))
+weight = int(input("Enter your weight in kilograms : "))
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+bmi = weight / height ** 2
+if bmi < 18.5:
+  print(f"Your BMI is {bmi}, you are underweight.")
+elif bmi < 25:
+  print(f"Your BMI is {bmi}, you have a normal weight.")
+elif bmi < 30:
+  print(f"Your BMI is {bmi}, you are slightly overweight.")
+elif bmi < 35:
+  print(f"Your BMI is {bmi}, you are obese.")
+else:
+  print(f"Your BMI is {bmi}, you are clinically obese.")
+
+#----- 윤년 계산기 -----
+# Which year do you want to check?
+year = int(input())
+# 🚨 Don't change the code above 👆
+
+# Write your code below this line 👇
+if year % 4 == 0:
+  if year % 100 == 0:
+    if year % 400 == 0:
+      print("Leap year")
+    else:
+      print("Not leap year")
+  else:
+    print("Leap year")
+else:
+  print("Not leap year")
+
+#----- 다중 연속 if 문 (사진값을 추가하기 위해 bill값 생성 후 더하기) -----
+print("Welcome to the rollercoaster!")
+height = int(input("What is your height in cm? "))
+bill = 0
+
+if height >= 120:
+    print("You can ride the rollercoaster!")
+    age = int(input("How old are you? "))
+    if age < 12:
+       bill = 5
+       print("Child tickets are $5.")
+    elif age <= 18:
+        bill = 7
+        print("Youth tickets are $7.")
+    else:
+       bill = 12
+       print("Adult tickets are $12.")
+    
+    photo = input("Do you want a photo taken? Y or N ")
+    if photo == "Y":
+        bill += 3 #bill = bill + 3
+    print(f"Your final bill is ${bill}")
+    # else:
+    #     print(f"Your final bill is ${bill}") 
+else:
+    print("Sorry, you have to grow taller before you can ride.")
+
+#----- 피자 주문 1 -----
+print("Thank you for choosing Python Pizza Deliveries!")
+size = input() # What size pizza do you want? S, M, or L
+add_pepperoni = input() # Do you want pepperoni? Y or N
+extra_cheese = input() # Do you want extra cheese? Y or N
+# 🚨 Don't change the code above 👆
+# Write your code below this line 👇
+bill = 0
+
+if size == "S":
+  bill = 15
+  if add_pepperoni == "Y":
+    bill += 2
+elif size == "M":
+  bill = 20
+  if add_pepperoni == "Y":
+    bill += 3
+elif size == "L":
+  bill = 25
+  if add_pepperoni == "Y":
+    bill += 3
+
+if extra_cheese == "Y":
+  bill += 1
+
+print(f"Your final bill is: ${bill}.")
+
+#----- 피자주문 2 -----
+print("Thank you for choosing Python Pizza Deliveries!")
+size = input()  # What size pizza do you want? "S", "M", or "L"
+add_pepperoni = input()  # Do you want pepperoni? "Y" or "N"
+extra_cheese = input()  # Do you want extra cheese? "Y" or "N"
+
+# Your code below this line 👇
+bill = 0
+if size == "S":
+  bill += 15
+elif size == "M":
+  bill += 20
+else:
+  bill += 25
+
+if add_pepperoni == "Y":
+  if size == "S":
+    bill += 2
+  else:
+    bill += 3
+
+if extra_cheese == "Y":
+  bill += 1
+
+print(f"Your final bill is: ${bill}.")
+
+#----- 논리 연산자 (and, or, not) -----
+#and = 둘 다 참이면 참, 둘 중 하나가 거짓이면 거짓, 둘 다 거짓이면 거짓
+# = 둘 다 참이면 참, 둘 중 하나만 참일때 참, 둘 다 거짓이면 거짓
+#not = 반대
+
+#----- 사랑 계산기 -----
+print("The Love Calculator is calculating your score...")
+name1 = input() # What is your name?
+name2 = input() # What is their name?
+# 🚨 Don't change the code above 👆
+# Write your code below this line 👇
+name3 = name1 + name2 #문자열 
+lower_name = name3.lower() #대소문자를 소문자로 
+
+t = lower_name.count("t")
+r = lower_name.count("r")
+u = lower_name.count("u")
+e = lower_name.count("e")
+true_count = t + r + u + e
+
+l = lower_name.count("l")
+o = lower_name.count("o")
+v = lower_name.count("v")
+e = lower_name.count("e")
+love_count = l + o + v + e
+
+final_count =int(str(true_count) + str(love_count)) #문자열로 더해주고(9+3=93) 정수로 만들기
+
+if final_count < 10 or final_count > 90:
+  print(f"Your score is {final_count}, you go together like coke and mentos.")
+elif final_count >= 40 and final_count <= 50:
+  print(f"Your score is {final_count}, you are alright together.")
+else:
+  print(f"Your score is {final_count}.")
+
+#----- 보물섬 게임 -----
+print("Welcome to Treasure Island.\nYour mission is to find the treasure.")
+direction = input('''You're at a crossroad, where do you want to go? Type "left" or "right".\n''').lower() # 문자열에 "". '' 가 많아 구분이 안될때 작은따옴표 3개를 양쪽에 두어 문자열의 시작과 끝을 구분할 수 있게 함
+
+if direction == "left":
+    swim_or_wait = input('You\'ve come to a lake. There is an island in the middle of the lake. Type "wait" to wait for a boat. Type "swim" to swim across.\n').lower() # \로 무시하는 방법도 있음
+    if swim_or_wait == "wait":
+        door = input("You faced three doors. Which color door would you like to choose? red or blue or yellow?\n").lower()
+        if door == "yellow":
+            print("You Win!")
+        elif door == "red":
+            print("You chose a door full of fire. Game Over...")
+        else:
+            print("You chose a door full of water. Game Over...")
+    else:
+        print("You were attacked by a shark. Game Over...")
+else:
+    print("You fell into a hole. Game Over...")
