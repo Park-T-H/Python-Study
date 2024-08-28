@@ -1,0 +1,121 @@
+#Data Types
+
+#String(문자열)
+print("Hello"[4])
+print("123" + "456")
+
+#Integer(소수점x)
+print(123 + 456)
+
+#Float(소수점o)
+3.14
+print(3213_234.35) #밑줄은 큰 수를 편하게 읽기 위해 ,와 같은 역할
+
+#Boolean (True/False)
+
+#형 변환
+num_char = len(input("What is your name?")) #int
+new_num_char = str(num_char) #str
+print("Your name has " + new_num_char + " characters.")
+
+#두 자리 수 앞 뒤 더하기 1
+two_digit_number = input()
+# 🚨 Don't change the code above 👆
+####################################
+# Write your code below this line 👇
+print(int(two_digit_number[0]) + int(two_digit_number[1]))
+
+#두 자리 수 앞 뒤 더하기 2
+two_digit_number = input()
+# 🚨 Don't change the code above 👆
+####################################
+# Write your code below this line 👇
+a = int(two_digit_number[0])
+b = int(two_digit_number[1])
+print(a + b)
+
+#두 자리 수 앞 뒤 더하기 3
+two_digit_number = input()
+# 🚨 Don't change the code above 👆
+####################################
+# Write your code below this line 👇
+a = int(two_digit_number[0])
+b = int(two_digit_number[1])
+c = a + b
+print(c)
+
+#연산 순서
+# ()
+# **
+# * /
+# + -
+
+#BMI 계산기 1
+# 1st input: enter height in meters e.g: 1.65
+height = input()
+# 2nd input: enter weight in kilograms e.g: 72
+weight = input()
+# 🚨 Don't change the code above 👆
+
+# Write your code below this line 👇
+a = float(height) ** 2
+b = int(weight)
+c = b / a
+print(int(c))
+
+#BMI 계산기 2
+height = input()
+weight = input()
+# Your code below this line 👇
+weight_as_int = int(weight)
+height_as_float = float(height)
+# Using the exponent operator **
+bmi = weight_as_int / height_as_float ** 2
+# or using multiplication and PEMDAS
+bmi = weight_as_int / (height_as_float * height_as_float)
+
+bmi_as_int = int(bmi)
+print(bmi_as_int)
+
+#round(반올림)
+print(round(8 / 3))
+print(round(8 / 3, 2)) #두번째 자리에서 반올림
+
+#//(버림)
+print(8 // 3)
+print(type(8 // 3)) #버려서 정수형(int)이 됨
+print(4 / 2)
+print(type(4 / 2)) #나누기는 나누어 떨어져도 실수형(float)이 됨
+
+# += -= *= /=
+score = 0
+score += 1 #1점 획득
+print(score)
+
+#형식 통합 f-String
+score = 0 #int
+height = 1.5 #float
+isWinning = True #boolean
+print("your score is " + str(score) + " " + str(height) + " " + str(isWinning)) #형식을 변환하여 출력하는 불편함이 생김
+print(f"your score is {score} {height} {isWinning}") #f-String으로 통합
+
+#남은 인생 몇 주 남았나 계산하기 (90세 기준)
+age = input()
+# 🚨 Don't change the code above 👆
+# Write your code below this line 👇
+remain_age = 90 - int(age)
+x = remain_age * 52 #1년은 52주
+print(f"You have {x} weeks left.")
+
+#팁 계산 후 엔빵 계산기 (두번째 자리에서 반올림)
+print("Welcome to the tip calculator.")
+total_bill = float(input("What was the total bill? $"))
+tip = float(input("What percentage tip would you like to give? 10, 12, or 15? "))
+tip2 = tip / 100
+people = int(input("How many people to split the bill? "))
+
+result = (total_bill * tip2 + total_bill) / people
+#result2 = round(result, 2) #마지막 자리가 0일 경우 안나옴 ex) 33.6
+result2 = "{:.2f}".format(result) #마지막 자리가 0일 경우 나타나게 함 ex) 33.60
+
+print(f"Each person should pay : ${result2}")
