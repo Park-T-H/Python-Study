@@ -1,0 +1,202 @@
+# ----- Random -----
+import random
+
+random_integer = random.randint(1, 10) # 1~10 랜덤
+print(random_integer)
+
+random_float = random.random() * 5
+print(random_float)
+
+love_score = random.randint(1, 100)
+print(f"Your love score is {love_score}")
+
+# ----- 동전던지기 -----
+import random
+
+coin = random.randint(0, 1)
+
+
+if coin == 1:
+    print("Heads")
+else:
+    print("Tails")
+
+# ----- 리스트 -----
+animal = ["dog", "cat", "cow"]
+print(animal[0])
+print(animal[1])
+print(animal[2])
+print(animal[-1]) #맨끝
+print(animal[-2]) #맨끝 앞
+animal.extend(["rabbit", "elephant"]) #추가
+print(animal)
+
+dog = animal[0]
+print(dog)
+
+# ----- 누가 계산할까? -----
+import random
+
+names_list = input()
+names = names_list.split(", ") # [,공백]으로 구분
+num_item = len(names)
+random_choice = random.randint(0, num_item - 1)
+pay = names[random_choice]
+print(pay + " is going to buy the meal today!")
+
+# ----- 중첩 리스트 -----
+fruits = ["Strawverries", "Nectarines", "Apple", "Grapes", "Peaches", "Cherries", "Pears"]
+vegetables = ["Spinach", "Kale", "Tomatoes"]
+
+dirty_dozen = [fruits, vegetables]
+
+print(dirty_dozen)
+print(dirty_dozen[1][1])
+
+# ----- 보물지도 ----- (?)
+line1 = ["⬜️","️⬜️","️⬜️"]
+line2 = ["⬜️","⬜️","️⬜️"]
+line3 = ["⬜️️","⬜️️","⬜️️"]
+map = [line1, line2, line3]
+print("Hiding your treasure! X marks the spot.")
+position = input() # Where do you want to put the treasure?
+# 🚨 Don't change the code above 👆
+# Write your code below this row 👇
+letter = position[0].lower()
+abc = ["a", "b", "c"]
+letter_index = abc.index(letter)
+number_index = int(position[1]) - 1
+map[number_index][letter_index] = "X"
+
+# Write your code above this row 👆
+# 🚨 Don't change the code below 👇
+print(f"{line1}\n{line2}\n{line3}")
+
+# ----- 가위 바위 보1 -----
+import random
+
+rock = """
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+"""
+
+paper = """
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+"""
+
+scissors = """
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+"""
+
+you_choose = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
+if you_choose == 0:
+    print(rock)
+elif you_choose == 1:
+    print(paper)
+elif you_choose == 2:
+    print(scissors)
+else:
+    print("Invalid input.")
+
+com_choose = random.randint(0, 2)
+print("Computer chose:\n")
+if com_choose == 0:
+    print(rock)
+elif com_choose == 1:
+    print(paper)
+else:
+    print(scissors)
+
+result_list = [you_choose], [com_choose]
+result_list_you = result_list[0]
+result_list_com = result_list[1]
+
+
+if result_list_you == [0]:
+    if result_list_com == [0]:
+        print("Draw")
+    elif result_list_com == [1]:
+        print("You lose")
+    else:
+        print("You win")
+elif result_list_you == [1]:
+    if result_list_com == [0]:
+        print("You win")
+    elif result_list_com == [1]:
+        print("Draw")
+    else:
+        print("You lose")
+elif result_list_you == [2]:
+    if result_list_com == [0]:
+        print("You lose")
+    elif result_list_com == [1]:
+        print("You win")
+    else:
+        print("Draw")
+
+# ----- 가위 바위 보2 -----
+import random
+
+rock = """
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+"""
+
+paper = """
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+"""
+
+scissors = """
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+"""
+game_images = [rock, paper, scissors]
+
+user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
+if user_choice >= 3 or user_choice < 0:
+    print("You typed an invalid number, you lose.")
+else:
+    print(game_images[user_choice])
+
+    computer_choice = random.randint(0, 2)
+    print("Computer chose:")
+    print(game_images[computer_choice])
+
+
+    if user_choice == 0 and computer_choice == 2:
+        print("You win!")
+    elif computer_choice == 0 and user_choice == 2:
+        print("You lose.")
+    elif computer_choice > user_choice:
+        print("You lose.")
+    elif user_choice > computer_choice:
+        print("You win!")
+    elif user_choice == computer_choice:
+        print("Draw.")
