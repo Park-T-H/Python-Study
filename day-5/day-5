@@ -1,0 +1,126 @@
+# ----- for 반복문 -----
+fruits = ["Apple", "Peach", "Pear"]
+for fruit in fruits:
+    print(fruit + " Pie")
+    print(fruits)
+
+# ----- 평균 키 -----
+# Input a Python list of student heights
+student_heights = input().split()
+for n in range(0, len(student_heights)):
+  student_heights[n] = int(student_heights[n])
+# 🚨 Don't change the code above 👆
+  
+# Write your code below this row 👇
+total_height = 0
+for height in student_heights:
+  total_height += height
+print(f"total height = {total_height}")
+
+number_of_students = 0
+for height in student_heights:
+  number_of_students += 1
+print(f"number of students = {number_of_students}")
+
+average_hight = 0
+for height in student_heights:
+  average_hight = round(total_height / number_of_students)
+print(f"average height = {average_hight}")
+
+# ----- 최고점수 구하기 -----
+# Input a list of student scores
+student_scores = input().split()
+for n in range(0, len(student_scores)):
+  student_scores[n] = int(student_scores[n])
+
+# Write your code below this row 👇
+highest_score = 0
+for score in student_scores:
+  if score > highest_score:
+    highest_score = score
+print(f"The highest score in the class is: {highest_score}")
+
+# ----- range -----
+for number in range(1, 11, 3):
+    print(number)
+
+# ----- 1~100까지 더하기 -----
+total = 0
+for number in range(1, 101):
+    total += number
+print(total)
+
+# ----- 짝수만 더하기 -----
+target = int(input()) # Enter a number between 0 and 1000
+# 🚨 Do not change the code above ☝️
+
+# Write your code here 👇
+total = 0
+for number in range(0, target + 1, 2):
+  total += number
+print(total)
+
+# ----- FizzBuzz (3의배수는 Fizz, 5의배수는 Buzz, 둘 다 일경우 FizzBuzz)
+for n in range(1, 101):
+  if n % 3 == 0 and n % 5 == 0: # 15의 배수를 먼저 처리하지 않고 3의 배수를 먼저 처리하면 15의 배수가 3의 배수로 인식되어 Fizz가 출력됨
+    print("FizzBuzz")
+  elif n % 3 == 0:
+    print("Fizz")
+  elif n % 5 == 0:
+    n = print("Buzz")
+  else:
+    print(n)
+
+# ----- 비밀번호 생성기 그대로 출력 버전 -----
+import random
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+print("Welcome to the PyPassword Generator!")
+nr_letters= int(input("How many letters would you like in your password?\n")) 
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
+
+#리스트를 문자열로 바꾸는 작업
+password = ""
+for n in range(1, nr_letters + 1):
+    password += random.choice(letters)
+
+for n in range(1, nr_symbols + 1):
+    password += random.choice(symbols)
+
+for n in range(1, nr_numbers + 1):
+    password += random.choice(numbers)
+
+print(f"Your password is : {password}")
+
+# ----- 비밀번호 생성기 무작위 출력 버전 -----
+import random
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+print("Welcome to the PyPassword Generator!")
+nr_letters= int(input("How many letters would you like in your password?\n")) 
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
+
+password_list = []
+for n in range(1, nr_letters + 1):
+    password_list += random.choice(letters) #password_list.append(random.choice(letters)) 와 동일 (list에 추가)
+
+for n in range(1, nr_symbols + 1):
+    password_list += random.choice(symbols)
+
+for n in range(1, nr_numbers + 1):
+    password_list += random.choice(numbers)
+
+random.shuffle(password_list) #리스트 목록을 랜덤하게 섞음
+
+#리스트를 문자열로 바꾸는 작업
+password = ""
+for n in password_list:
+    password += n
+
+print(f"Your password is : {password}")
