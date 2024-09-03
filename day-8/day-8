@@ -1,0 +1,198 @@
+# ----- 함수 생성, 호출 -----
+def greet():
+    print("Hello")
+    print("How do you do?")
+    print("Isn't the weather nice?")
+
+greet()
+
+
+# ----- 입력 값이 있는 함수 생성, 호출 -----
+def greet_with_name(name):
+    print(f"Hello {name}")
+    print(f"How do you do? {name}")
+    print(f"Isn't the weather nice? {name}")
+
+greet_with_name("TaeHyoung")
+
+# ----- 남은 삶을 주로 표현 -----
+def life_in_weeks(age):
+    ages = int(age)
+    weeks = (90 - ages) * 52
+    print(f"You have {weeks} weeks left.")
+    
+    
+life_in_weeks("56")
+
+# ----- 여러개의 입력 값이 있는 함수 생성, 호출 -----
+def greet_with(name, location):
+    print(f"Hello {name}")
+    print(f"What is it like in {location}")
+
+greet_with("TaeHyoung", "Nowhere") #위치 인자
+greet_with(location="Nowhere", name="TaeHyoung") #키워드 인자
+
+def my_function(a, b, c):
+    print(f"Hello{a}{b}{c}")
+
+my_function(c="1", a="2", b="3")
+
+# ----- 사랑 계산기 -----
+def calculate_love_score(name1, name2):
+    name1 = name1.lower()
+    name2 = name2.lower()
+    name3 = name1 + name2
+
+    t = name3.count("t")
+    r = name3.count("r")
+    u = name3.count("u")
+    e = name3.count("e")
+
+    l = name3.count("l")
+    o = name3.count("o")
+    v = name3.count("v")
+    e = name3.count("e")
+
+    name_true = str(t + r + u + e)
+    name_love = str(l + o + v + e)
+
+    love_score = name_true + name_love
+
+    print(love_score)
+
+
+calculate_love_score("Kanye West", "Kim Kardashian")
+
+# ----- Step1 -----
+alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+text = input("Type your message:\n").lower()
+shift = int(input("Type the shift number:\n"))
+
+# TODO-1: Create a function called 'encrypt()' that takes 'original_text' and shift_amount as 2 inputs.
+# TODO-2: Inside the 'encrypt()' function, shift each letter of the 'original_text' forwards in the alphabet by the shift_amount and print the encrypted text.
+def encrypt(original_text, shift_amount):
+    cipher_text = ""
+
+    for letter in original_text:
+        shifted_position = alphabet.index(letter) + shift_amount
+
+        shifted_position = shifted_position % len(alphabet) # ex) z를 이동하면 리스트 범위 밖이라 오류가 나기 때문
+        cipher_text += alphabet[shifted_position]
+
+    print(f"Here is the encoded result: {cipher_text}")
+
+# TODO-3 : Call the 'encrypt()' function and pass in the user inputs. You should be able to test the code and encrypt a message.
+encrypt(original_text=text, shift_amount=shift)
+
+# ----- Step2 -----
+alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+text = input("Type your message:\n").lower()
+shift = int(input("Type the shift number:\n"))
+
+
+def encrypt(original_text, shift_amount):
+    cipher_text = ""
+
+    for letter in original_text:
+        shifted_position = alphabet.index(letter) + shift_amount
+
+        shifted_position = shifted_position % len(alphabet)
+        cipher_text += alphabet[shifted_position]
+
+    print(f"Here is the encoded result: {cipher_text}")
+
+
+#TODO-1: Create a function called 'decrypt()' that takes 'original_text' and 'shift_amount' as 2 input.
+#TODO-2: Inside the 'decrypt()' function, shift each letter of the 'original_text' forwards in the alphabet backwards by the shift_amount and print the decrypted text.
+def decrypt(original_text, shift_amount):
+    output_text = ""
+
+    for letter in original_text:
+        shifted_position = alphabet.index(letter) - shift_amount
+
+        shifted_position = shifted_position % len(alphabet)
+        output_text += alphabet[shifted_position]
+    
+    print(f"Here is the decode result: {output_text}")
+
+if direction == "encode":
+    encrypt(original_text=text, shift_amount=shift)
+elif direction == "decode":
+    decrypt(original_text=text, shift_amount=shift)
+
+# ----- Step3 -----
+alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+text = input("Type your message:\n").lower()
+shift = int(input("Type the shift number:\n"))
+
+# TODO-1: Combine the 'encrypt()' and 'decrypt()' functions into one function called caesar(). Use the value of the user chosen 'direction' variable to determine which functionality to use.
+# encode() 와 decode()를 caesar()로 통합
+def caesar(original_text, shift_amount, encode_or_decode):
+    output_text = ""
+
+    if encode_or_decode == "decode":
+        shift_amount *= -1
+
+    for letter in original_text:
+
+
+        shifted_position = alphabet.index(letter) + shift_amount
+        shifted_position = shifted_position % len(alphabet)
+        output_text += alphabet[shifted_position]
+    
+    print(f"Here is the {encode_or_decode}d result: {output_text}")
+
+
+caesar(original_text=text, shift_amount=shift, encode_or_decode=direction)
+
+# ----- Step4 -----
+
+#TODO-1: Import and print the logo from art.py when the program starts.
+import art
+print(art.logo)
+
+alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+
+
+def caesar(original_text, shift_amount, encode_or_decode):
+    output_text = ""
+
+
+    if encode_or_decode == "decode":
+        shift_amount *= -1
+
+    for letter in original_text:
+        #TODO-2: What happens if the user enters a number/symbol/space?
+        if letter not in alphabet:
+            output_text += letter
+
+
+
+        shifted_position = alphabet.index(letter) + shift_amount
+        shifted_position = shifted_position % len(alphabet)
+        output_text += alphabet[shifted_position]
+    
+    print(f"Here is the {encode_or_decode}d result: {output_text}")
+
+#TODO-3: Can you figure out a way to restart the cipher program?
+
+should_continue = True
+
+while should_continue:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+
+    caesar(original_text=text, shift_amount=shift, encode_or_decode=direction)
+
+    restart = input("Type 'yes' if you want to go again. Otherwise, type 'no'.\n").lower()
+    if restart == "no":
+        should_continue = False
+        print("Goodbye.")
