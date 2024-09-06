@@ -1,0 +1,101 @@
+# ----- 딕셔너리 {"key" : Value} -----
+programming_dictionary = {
+    "Bug": "An error in a program that prevents the program from running as expected.",
+    "Function": "A piece of code that you can easily call over and over again.",
+}
+
+print(programming_dictionary["Bug"])
+
+programming_dictionary["Loop"] = "The action of doing something over and over again." #딕셔너리 추가
+print(programming_dictionary)
+
+programming_dictionary["Bug"] = "A moth in your computer." #키 항목 변경
+print(programming_dictionary)
+
+for key in programming_dictionary: #딕셔너리 반복
+    print(key)
+    print(programming_dictionary[key])
+
+programming_dictionary = {} #딕셔너리 항목 삭제
+print(programming_dictionary)
+
+# ----- 시험 점수 매기기 -----
+student_scores = {
+    'Harry': 88,
+    'Ron': 78,
+    'Hermione': 95,
+    'Draco': 75,
+    'Neville': 60
+}
+
+student_grades = {
+    "Harry": "Exceeds Expectations",
+    "Ron": "Acceptable",
+    "Hermione": "Outstanding",
+    "Draco": "Acceptable",
+    "Neville": "Fail",
+}
+
+print(student_grades)
+
+
+# ----- 리스트와 딕셔너리 중첩하기 -----
+capitals = {
+    "France": "Paris",
+    "Germany": "Berlin"
+}
+
+travel_log = {
+    "France": ["Paris", "Lille", "Dijon"], #키는 하나의 값만 가질 수 있기 때문에 여러개를 표현할 땐 리스트 사용
+    "Germany": ["Stuttgart", "Berlin"]
+}
+
+print(travel_log["France"][1]) #Lille 출력
+
+nested_list = ["A", "B", ["C", "D"]] #리스트에 리스트 중첩
+print(nested_list[2][1]) #D 출력
+
+#딕셔너리에 딕셔너리 중첩
+travel_log = {
+    "France": {
+        "cities_visited": ["Paris", "Lille", "Dijon"],
+        "total_visits": 12
+    },
+    "Germany": {
+        "cities_visited": ["Berlin", "Hamburg", "Stuttgart"],
+        "total_visits": 5
+    },
+}
+
+print(travel_log["Germany"]["cities_visited"][2]) #Stuttgart 출력
+
+# ----- 비밀 경매 -----
+import logo
+print(logo.logo)
+
+def find_highest_bidder(bidding_dictionary):
+    winner = ""
+    highest_bid = 0
+
+    for bidder in bidding_dictionary:
+        bid_amount = bidding_dictionary[bidder]
+        if bid_amount > highest_bid:
+            highest_bid = bid_amount
+            winner = bidder
+
+    print(f"The winner is {winner} with a bid of ${highest_bid}.")
+
+bids = {}
+continue_bidding = True
+while continue_bidding:
+    name = input("What is your name?: ")
+    price = int(input("What is your bid?: $"))
+    bids[name] = price
+    any_other = input("Are there any other bidders? Type 'yes or no'.\n").lower()
+
+    if any_other == "no":
+        continue_bidding = False
+        find_highest_bidder(bids)
+    
+    elif any_other == "yes":
+        print("\n" * 100)
