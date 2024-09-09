@@ -1,0 +1,86 @@
+# ----- titile() -----
+def format_name(f_name, l_name):
+    formated_f_name = f_name.title()
+    formated_l_name = l_name.title()
+
+    print(f"{formated_f_name} {formated_l_name}")
+
+format_name(f_name="tAeHyounG", l_name="PaRk")
+
+# ----- return (끝, 벗어남)-----
+def format_name(f_name, l_name):
+    if f_name =="" or l_name == "":
+        return
+    formated_f_name = f_name.title()
+    formated_l_name = l_name.title()
+
+    return f"{formated_f_name} {formated_l_name}"
+
+print(format_name(input("What is your first name? "), input("What is your last name? ")))
+
+# ----- 윤년(함수) -----
+def is_leap_year(year):
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                return True
+            else:
+                return False
+        else:
+            return True
+    else:
+        return False
+    
+print(is_leap_year(int(input())))
+
+# ----- 계산기 -----
+import art
+
+def add(n1, n2):
+    return n1 + n2
+
+def subtract(n1, n2):
+    return n1 - n2
+
+def multiply(n1, n2):
+    return n1 * n2
+
+def divide(n1, n2):
+    return n1 / n2
+
+
+operations = {
+    "+": add,
+    "-": subtract,
+    "*": multiply,
+    "/": divide,
+}
+
+def calculator():
+    print(art.logo)
+
+    should_accumulate = True
+
+    num1 = float(input("What's the first number?: "))
+
+    while should_accumulate:
+        # print("+\n-\n*\n/")
+        for symbol in operations:
+            print(symbol)
+        operation_symbol = input("Pick an operation: ")
+        num2 = float(input("What's the next number?: "))
+        answer = operations[operation_symbol](num1, num2)
+        print(answer)
+        continue_culculation = input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: ")
+
+        if continue_culculation == "y":
+            num1 = answer
+        else:
+            should_accumulate = False
+            print("\n" * 100)
+            calculator()
+
+calculator()
+
+
+# print(operations["*"](2, 4))
